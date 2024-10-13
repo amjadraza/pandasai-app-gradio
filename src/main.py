@@ -18,15 +18,7 @@ def read_csv(file):
     
     try:
         # Read the uploaded file into a pandas DataFrame
-        df = pd.read_csv(file.name)
-        
-        # Prepare the output string
-        output = f"CSV file successfully read into a DataFrame.\n\n"
-        output += f"Number of rows: {df.shape[0]}\n"
-        output += f"Number of columns: {df.shape[1]}\n"
-        output += f"\nColumn names:\n{', '.join(df.columns)}\n"
-        output += f"\nFirst 5 rows:\n{df.head().to_string()}"
-        
+        df = pd.read_csv(file.name)       
         return df
     except pd.errors.EmptyDataError:
         return "The uploaded file is empty."
