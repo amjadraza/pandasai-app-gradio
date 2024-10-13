@@ -3,7 +3,9 @@
 An App to interact with Pandas Dataframes using Generative AI (LLMs). This app is built using `gradio` as the front end and [`pandasai`](https://github.com/gventuri/pandas-ai) as a higher-level Python wrapper to make dataframes conversational.
 
 `pandasai` makes available `openai`, `HuggingFace`, and `Azure` APIs for Generative AI capabilities. 
-Users can configure their choice of platform for the backend.  
+Users can configure their choice of platform for the backend. 
+
+![PandasAI App Screenshot](Screenshot.png)
 
 ## 🔧 Features
 
