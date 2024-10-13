@@ -1,12 +1,9 @@
-<h1 align="center">
-📖PANDASAI APP
-</h1>
+# 📖 PANDASAI APP
 
-An App to interact with Pandas Dataframes using Generative AI (LLMs). This app is built using `streamlit`
-as front end and using [`pandasai`](https://github.com/gventuri/pandas-ai) a higher level python wrapper to make dataframes conversational.
+An App to interact with Pandas Dataframes using Generative AI (LLMs). This app is built using `gradio` as the front end and [`pandasai`](https://github.com/gventuri/pandas-ai) as a higher-level Python wrapper to make dataframes conversational.
 
-`pandasai` made available `openai`, `HuggingFace` and `Azure` APIs for Generative AI capabilities. 
-User can configure their choice of Platform for backend.  
+`pandasai` makes available `openai`, `HuggingFace`, and `Azure` APIs for Generative AI capabilities. 
+Users can configure their choice of platform for the backend.  
 
 ## 🔧 Features
 
@@ -19,51 +16,66 @@ User can configure their choice of Platform for backend.
 1. Clone the repository📂
 
 ```bash
-git clone https://github.com/amjadraza/pandasai-app.git
+git clone https://github.com/amjadraza/pandasai-app-gradio.git
 ```
 
-2. Install dependencies with [Poetry](https://python-poetry.org/) and activate virtual environment🔨
+2. Install dependencies with [uv](https://github.com/astral-sh/uv) and activate virtual environment🔨
 
 ```bash
-poetry install
-poetry shell
-```
+# Install uv if you haven't already
+pip install uv
 
-3. Run the Streamlit server🚀
+# Create a virtual environment and install dependencies using `uv` with `pyproject.toml` file
 
 ```bash
-cd pandasai_app
-streamlit run main.py 
+# Create a virtual environment
+uv venv
+source .venv/bin/activate
+
+# Install dependencies from pyproject.toml
+uv pip install -r pyproject.toml
 ```
 
-Run App using Docker
---------------------
-This project includes `Dockerfile` to run the app in Docker container.
+3. Run the Gradio server🚀
 
-Build the docker container
+```bash
+uv run start
+```
 
-``docker  build -t pandasai-app .``
+## Running App using Docker
 
-1. Run the docker container directly 
+This project includes a `Dockerfile` to run the app in a Docker container.
 
-``docker run -d --name pai_app -p 8501:8501 pandasai-app``
+Build the docker container:
 
-2. Run the docker container using docker-compose (Recommended)
+```bash
+docker build -t pandasai-app .
+```
 
-``docker-compose up``
+1. Run the docker container directly:
+
+```bash
+docker run -d --name pai_app -p 7860:7860 pandasai-app
+```
+
+2. Run the docker container using docker-compose (Recommended):
+
+```bash
+docker-compose up
+```
 
 ## 🚀 Upcoming Features
 
-- [ ] Add support for more models (e.g.HuggingFace, Azure.).
+- [ ] Add support for more models (e.g., HuggingFace, Azure).
 - [ ] Adding Functionality of Plotting.
-- [ ] Some Generic insights on Uploaded Data (e.g Shape, head etc)
+- [ ] Some Generic insights on Uploaded Data (e.g., Shape, head, etc.)
 - [x] Adding Docker Support to run the App in Docker
 - [ ] Push Docker Image to DockerHub for Public use
 - [ ] Deploying App on Google App Engine
 
 ## Report Feedbacks
 
-As `pandasai` is in active developments as well as LLMs sometime go south. 
+As `pandasai` is in active development, as well as LLMs sometimes go south. 
 Please report your feedbacks for improvements. 
 
 ## DISCLAIMER
@@ -72,9 +84,9 @@ The Pandasai app (hereinafter referred to as "the App") is provided for informat
 The creators and authors of the App make no representations or warranties of any kind, 
 express or implied, about the completeness, accuracy, reliability, suitability, 
 or availability of the App or the information, products, services, 
-r related graphics contained in the App.
+or related graphics contained in the App.
 
-We do not store any of data or API keys. Users can refresh Keys as part of Best Practices.
+We do not store any data or API keys. Users can refresh Keys as part of Best Practices.
 
 This disclaimer is subject to change without notice. It is your responsibility to review this disclaimer periodically 
 for any updates or changes.

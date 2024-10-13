@@ -1,33 +1,49 @@
-[tool.poetry]
+[project]
 name = "pandasai-app"
 version = "1.0.0"
-description = "An app to have conversational pandas dataframes"
-authors = ["Datafy Associates <info@datafyassociates.com>"]
-license = "MIT"
+description = "An app to have conversational pandas dataframes using Gradio 5"
+authors = [
+    {name = "Datafy Associates", email = "info@datafyassociates.com"},
+]
+dependencies = [
+    "gradio>=5.0.0,<6.0.0",
+    "pandasai==2.2.15",
+    "numpy==1.26.3",
+    "PyYAML>=6.0.2,<7.0.0",
+]
+requires-python = ">=3.9"
 readme = "README.md"
-packages = [{include = "pandasai_app"}]
+license = {text = "MIT"}
 
-[tool.poetry.dependencies]
-python = ">=3.9,<3.9.7 || >3.9.7,<4.0"
-streamlit = "1.39.0"
-pandasai = "2.2.15"
-numpy = "1.26.3"
-PyYAML = "^6.0.2"
+[project.optional-dependencies]
+dev = [
+    "python-dotenv>=1.0.1,<2.0.0",
+    "pytest==8.3.3",
+]
+lint = [
+    "isort>=5.12.0,<6.0.0",
+    "black>=23.1a1,<24.0.0",
+    "flake8>=6.0.0,<7.0.0",
+]
+
+[build-system]
+requires = ["uv"]
+build-backend = "uv.virtualenv"
 
 
-[tool.poetry.group.dev.dependencies]
-python-dotenv = "^1.0.1"
-pytest = "8.3.3"
-
-
-[tool.poetry.group.lint.dependencies]
-isort = "^5.12.0"
-black = {version = "^23.1a1", allow-prereleases = true}
-flake8 = "^6.0.0"
+[tool.uv.scripts]
+start = "python app.py"
+test = "pytest"
+lint = "flake8 ."
+format = "black . && isort ."
 
 [tool.isort]
 profile = "black"
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.black]
+line-length = 88
+target-version = ['py39']
+
+[tool.flake8]
+max-line-length = 88
+extend-ignore = "E203"
