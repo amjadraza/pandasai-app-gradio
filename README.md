@@ -39,30 +39,9 @@ uv pip install -r pyproject.toml
 3. Run the Gradio server🚀
 
 ```bash
-uv run start
+python src/main.py
 ```
 
-## Running App using Docker
-
-This project includes a `Dockerfile` to run the app in a Docker container.
-
-Build the docker container:
-
-```bash
-docker build -t pandasai-app .
-```
-
-1. Run the docker container directly:
-
-```bash
-docker run -d --name pai_app -p 7860:7860 pandasai-app
-```
-
-2. Run the docker container using docker-compose (Recommended):
-
-```bash
-docker-compose up
-```
 
 ## 🚀 Upcoming Features
 
